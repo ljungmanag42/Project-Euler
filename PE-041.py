@@ -1,4 +1,4 @@
-# ProjectEuler XXX
+# ProjectEuler 41
 
 ''''
 We shall say that an n-digit number is pandigital if it makes use of all the 
@@ -8,4 +8,12 @@ also prime.
 What is the largest n-digit pandigital prime that exists?
 '''
 
-# Solution
+def is_prime(x):
+    if x >= 2:
+        for n in range(2, x ):
+            if (x % n) == 0:
+                return False
+        #after the complete for n loop
+        return True
+    else:
+        return False
