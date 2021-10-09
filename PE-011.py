@@ -1,8 +1,9 @@
-# Project Euler 11
-#
-# In the 20×20 grid below, four numbers along a diagonal line have been marked in red.
+# ProjectEuler 11
 
-'''Answer = 70600674'''
+'''
+In the 20×20 grid below, four numbers along a diagonal line have 
+been marked in red.
+'''
 
 input_grid = []
 input_grid.append([8,2,22,97,38,15,0,40,0,75,4,5,7,78,52,12,50,77,91,8])
@@ -26,10 +27,13 @@ input_grid.append([20,69,36,41,72,30,23,88,34,62,99,69,82,67,59,85,74,4,36,16])
 input_grid.append([20,73,35,29,78,31,90,1,74,31,49,71,48,86,81,16,23,57,5,54])
 input_grid.append([1,70,54,71,83,51,54,69,16,92,33,48,61,43,52,1,89,19,67,48])
 
-# The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
-#
-# What is the greatest product of four adjacent numbers in the same 
-# direction (up, down, left, right, or diagonally) in the 20×20 grid?
+'''
+The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
+
+What is the greatest product of four adjacent numbers in the same 
+direction (up, down, left, right, or diagonally) in the 20×20 grid?
+'''
+
 def bin_factor(input_list):
     f = 1
     for n in input_list:
@@ -40,7 +44,7 @@ horz = 0
 for y in range(0,20):
     for x in range(0,20-4):
         horz = max(bin_factor(input_grid[y][x:x+4]), horz)
-print "Horizontal:", horz        
+print("Horizontal:", horz)        
         
 vert = 0
 for x in range(0,20):
@@ -49,7 +53,7 @@ for x in range(0,20):
         for y_b in range(y,y+4): 
             vert_list.append(input_grid[y_b][x])
         vert = max(bin_factor(vert_list), vert)
-print "Vertical:", vert
+print("Vertical:", vert)
 
 LU_diag = 0
 for x in range(0,20):
@@ -64,7 +68,7 @@ for x in range(0,20):
                 diag_list.append(input_grid[y_b][x_b])
             if len(diag_list)==4:
                 LU_diag = max(bin_factor(diag_list), LU_diag)
-print "Left Up Diagonal:", LU_diag
+print("Left Up Diagonal:", LU_diag)
 
 LD_diag = 0
 for x in range(0,20):
@@ -109,7 +113,7 @@ for x in range(0,20):
                 diag_list.append(input_grid[y_b][x_b])
             if len(diag_list)==4:
                 RD_diag = max(bin_factor(diag_list), RD_diag)
-print "Right Down Diagonal:", RD_diag
+print("Right Down Diagonal:", RD_diag)
 
 print "Largest Product:", max(horz, vert, LU_diag, LD_diag, RD_diag, RU_diag)
 
