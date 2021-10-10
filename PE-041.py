@@ -17,3 +17,29 @@ def is_prime(x):
         return True
     else:
         return False
+
+def is_pandigital(x):
+    x_str = str(x)
+    xSet = set(x_str)
+    charSet = set([str(c) for c in range(1,len(x_str)+1)])
+    intersectionSet = charSet.intersection(xSet)
+    if len(intersectionSet)==len(xSet) and len(xSet)==len(x_str):
+        return True
+    else:
+        return False
+
+primes_short = []
+n=0
+while n<=20:
+    n+=1
+    if is_prime(n):
+        primes_short.append(n)
+
+pandigital_primes = []
+while n<1e9:
+   n+=1
+   if is_pandigital(n):
+       print(n)
+       if is_prime(n):
+           pandigital_primes.append(n)
+print(pandigital_primes)          
