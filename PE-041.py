@@ -36,10 +36,12 @@ while n<=20:
         primes_short.append(n)
 
 pandigital_primes = []
-while n<1e9:
-   n+=1
+n=999999999
+while n>0:
+   n-=1
    if is_pandigital(n):
        print(n)
        if is_prime(n):
            pandigital_primes.append(n)
+           break
 print(pandigital_primes)          
